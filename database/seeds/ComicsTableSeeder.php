@@ -14,6 +14,7 @@ class ComicsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i = 0; $i < 20; $i++){
+
             $newComic = new Comic;
             $newComic->title = $faker->text(30);
             if(rand(0,1)==1){
@@ -24,13 +25,11 @@ class ComicsTableSeeder extends Seeder
             $newComic->n_pages = $faker->numberBetween(20, 400);
             $newComic->edition = $faker->company();
             $newComic->reading = (rand(0,1) ==1) ? "ltr" : "rtl";
-            $newComic->price = $faker->randomFloat(2, 1, 9999);
+            $newComic->price = $faker->randomFloat(2, 1, 999);
             $newComic->color = rand(0,1);
             $newComic->release = $faker->year();;
             $newComic->cover = $faker->imageUrl(200, 300);
             $newComic->save();
-        }
-
-
-    }
+          }
+  }  
 }
