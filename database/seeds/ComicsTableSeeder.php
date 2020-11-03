@@ -31,5 +31,5 @@ class ComicsTableSeeder extends Seeder
             $newComic->cover = $faker->imageUrl(200, 300);
             $newComic->save();
           }
-  }  
+  }
 }
