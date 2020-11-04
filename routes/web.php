@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('comics', "ComicController");
+Route::resource('genres', "GenreController");
+
 
 Route::get("comics-ajax", "Api\ComicController@getById");
