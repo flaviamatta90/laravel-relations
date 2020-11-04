@@ -1,10 +1,10 @@
 <?php
 
-use App\Author;
 use Illuminate\Database\Seeder;
+use App\Author;
 use Faker\Generator as Faker;
 
-class AuthorTableSeeder extends Seeder
+class AuthorsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

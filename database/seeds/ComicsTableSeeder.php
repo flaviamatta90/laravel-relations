@@ -20,7 +20,6 @@ class ComicsTableSeeder extends Seeder
             if(rand(0,1)==1){
                 $newComic->original_title = $faker->text(50);
             }
-            $newComic->author = $faker->name();
             $newComic->number = $faker->numberBetween(1, 1000);
             $newComic->n_pages = $faker->numberBetween(20, 400);
             $newComic->edition = $faker->company();
