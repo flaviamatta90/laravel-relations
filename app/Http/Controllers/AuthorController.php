@@ -26,7 +26,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view("authors.create");
     }
 
     /**
@@ -37,7 +37,22 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            "name"=> "required|max:20",
+            "lastname"=> "required|max:30",
+            "date_of_birth"=> "required|date_format:Y-m-d",
+        ]);
+
+        $newAuthor = new Author;
+        $newAuthor->name = $data["name"];
+        $newAuthor->lastname = $data["lastname"];
+        $newAuthor->date_of_birth = $data["date_of_birth"];
+
+        $newAuthor->save();
+
+        return redirect()->route("authors.index");
     }
 
     /**
@@ -82,6 +97,12 @@ class AuthorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $author = Author::find($id);
+        $author->delete();
+
+        session()->flash('deleted', 'L\'utente: ' .$author->name,' '.$author->lastname.' è stato cancellato');
+
+        return redirect()->route("author.index");
+
     }
 }
