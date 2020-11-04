@@ -16,6 +16,9 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Cognome</th>
                 <th scope="col">Data di nascita</th>
+                <th scope="col">Nazionalità</th>
+                <th scope="col">Fumetti scritti</th>
+
                 <th scope="col">Azioni</th>
 
               </tr>
@@ -26,9 +29,15 @@
                 <td>{{$author->name}}</td>
                 <td>{{$author->lastname}}</td>
                 <td>{{$author->date_of_birth}}</td>
-                <td>{{$author->date_of_birth}}</td>
+                <td>{{$author->info->nationality}}</td>
+                <td>{{$author->info->title}}</td>
                 <td>
-                    <form action="{{route('authors.destroy', $author->id)}}" method="post">
+                    {{-- <ul>
+                        @foreach ($author->comics as $comic)
+                            <li>{{$comic->title}}</li>
+                        @endforeach
+                    </ul> --}}
+                    <form action="{{route('authors.destroy', $author->id)}}" method="POST">
                         @csrf
                         @method("DELETE")
                         <button class="btn btn-danger" type="submit">

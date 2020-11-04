@@ -10,4 +10,9 @@ class Author extends Model
     {
         return $this->hasOne('App\AuthorInfo');
     }
+
+    public function comics()
+    {
+        return $this->hasMany('App\Comic');
+    }
 }
