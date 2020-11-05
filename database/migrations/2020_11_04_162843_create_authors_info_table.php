@@ -14,6 +14,7 @@ class CreateAuthorsInfoTable extends Migration
     public function up()
     {
         Schema::create('authors_info', function (Blueprint $table) {
+            
             $table->foreignId('author_id')->constrained();
             $table->string('nationality', 60)->nullable();
             $table->text('bio')->nullable();

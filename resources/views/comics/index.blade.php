@@ -9,6 +9,7 @@
                         <img class="card-img-top" src="{{$comic->cover}}" alt="{{$comic->title}}">
                         <div class="card-body">
                         <h5 class="card-title">{{$comic->title}}</h5>
+                        <h6>Autore: {{$comic->author->name}}{{$comic->author->lastname}}</h6>
                         <a href="{{route("comics.show", $comic->id)}}" class="btn btn-primary">Scopri di più</a>
                         </div>
                     </div>

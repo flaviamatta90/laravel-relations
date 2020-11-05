@@ -24,10 +24,11 @@ class ComicsTableSeeder extends Seeder
             if(rand(0,1)==1){
                 $newComic->original_title = $faker->text(50);
             }
+            $newComic->author_id = $author->id;
             $newComic->number = $faker->numberBetween(1, 1000);
             $newComic->n_pages = $faker->numberBetween(20, 400);
             $newComic->edition = $faker->company();
-            $newComic->reading = (rand(0,1) ==1) ? "ltr" : "rtl";
+            $newComic->reading = (rand(0,2) ==1) ? "ltr" : "rtl";
             $newComic->price = $faker->randomFloat(2, 1, 999);
             $newComic->color = rand(0,1);
             $newComic->release = $faker->year();;

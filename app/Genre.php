@@ -9,4 +9,9 @@ class Genre extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function comics()
+    {
+        return $this->belongsToMany('App\Comic');
+    }
 }
