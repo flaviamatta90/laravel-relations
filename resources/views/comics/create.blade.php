@@ -72,7 +72,7 @@
 
             <div class="form-group">
                 <label for="color">Colore</label>
-                <input type="checkbox"  name="color" id="color">
+                <input type="checkbox"  name="color" id="color" value="1">
 
                 @error('color')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -100,6 +100,34 @@
                 <input type="cover" class="form-control @error('cover') is-invalid @enderror" id="cover" placeholder="Inserisci la URL Cover del fumetto" value="{{old("cover")}}">
 
                 @error('cover')
+                    <div class="alert alert-danger">{{ $message }}</div>
+               @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="autor_id">Autore</label>
+
+                <select class="form-control @error('autor_id') is-invalid @enderror" id="autor_id" name="autor_id">
+                  @foreach ($authors as $author)
+                    <option value="{{$author->id}}">{{ $author->name }} {{ $author->laastname }}</option>
+                  @endforeach
+                </select>
+
+                @error('autor_id')
+                    <div class="alert alert-danger">{{ $message }}</div>
+               @enderror
+            </div>
+
+            <div class="form-group">
+                <h3>Genere di Fumetto</h3>
+                <ul>
+                    @foreach ($genres as $genre)
+                        <label for={{$genre->id}}>{{ $genre->name }}</label>
+                        <input type="checkbox" name="genres[]" id="{{$genre->id}}" value="{{$genre->id}}">
+                    @endforeach
+                </ul>
+
+                @error('genres')
                     <div class="alert alert-danger">{{ $message }}</div>
                @enderror
             </div>

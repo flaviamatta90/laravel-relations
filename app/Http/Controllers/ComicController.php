@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Comic;
 use App\Author;
-use App\Genres;
+use App\Genre;
 
 use Illuminate\Http\Request;
 
@@ -30,8 +30,9 @@ class ComicController extends Controller
 
     {
         $authors = Author::all();
+        $genres = Genre::all();
 
-        return view("comics.create", compact("authors"));
+        return view("comics.create", compact("authors", "genres"));
 
     }
 
@@ -45,7 +46,7 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        if($data["cover"] == null){
+        if($data["cover"] == 0){
             unset($data["cover"]);
         }
 

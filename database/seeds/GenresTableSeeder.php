@@ -13,14 +13,14 @@ class GenresTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        // $genreArray = [
-        //     'fantasy',
-        //     'horror',
-        //     'drama',
-        //     'comedy',
-        //     'action',
-        //     'sci-fi'
-        // ];
+         $genreArray = [
+            'fantasy',
+            'horror',
+            'drama',
+            'comedy',
+            'action',
+            'sci-fi'
+        ];
 
         // foreach ($genreArray as $genre) {
         //     $newGenre = new Genre;
@@ -43,17 +43,16 @@ class GenresTableSeeder extends Seeder
         //         }
         // }
 
-        // foreach ($array as $genre) {
-        //     $newGenre = new Genre;
-        //     $newGenre->name = $genre;
-        //     $newGenre->save();
-        // }
-        
+        foreach ($genreArray as $genre) {
+            $newGenre = new Genre;
+            $newGenre->name = $genre;
+            $newGenre->save();
+        }
 
-        $counter = 0;
 
-        while ($counter < 10) { 
-            
+        /* $counter = 0;
+
+        while ($counter < 10) {
             $word = $faker->word;
             // $word = "ea";
 
@@ -63,14 +62,14 @@ class GenresTableSeeder extends Seeder
             // dd($data->count() == 0);
 
             if ($data->count() === 0) {
-                
+
                 $newGenre = new Genre;
                 $newGenre->name = $word;
-    
+
                 $newGenre->save();
                 $counter++;
-            }                      
-        }
+            }
+        } */
 
 
     }
